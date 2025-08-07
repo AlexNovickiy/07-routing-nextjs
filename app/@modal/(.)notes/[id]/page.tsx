@@ -1,5 +1,5 @@
 import { fetchNoteById } from '@/lib/api';
-import NoteModalDetails from './ModalDetails';
+import NotePreviewClient from './NotePreview.client';
 import css from '@/components/Modal/Modal.module.css';
 
 type NoteDetailsModalProps = {
@@ -13,7 +13,7 @@ export default async function NoteDetailsModal({
   const note = await fetchNoteById(id);
 
   return (
-    <NoteModalDetails>
+    <NotePreviewClient>
       <>
         <h2 className={css.title}>Note Details</h2>
         <p className={css.content}>ID: {note.id}</p>
@@ -30,6 +30,6 @@ export default async function NoteDetailsModal({
           </p>
         )}
       </>
-    </NoteModalDetails>
+    </NotePreviewClient>
   );
 }

@@ -4,11 +4,13 @@ import css from '@/components/Modal/Modal.module.css';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect } from 'react';
 
-type NoteModalDetailsProps = {
+type NotePreviewClientProps = {
   children: React.ReactNode;
 };
 
-export default function NoteModalDetails({ children }: NoteModalDetailsProps) {
+export default function NotePreviewClient({
+  children,
+}: NotePreviewClientProps) {
   const router = useRouter();
 
   const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
