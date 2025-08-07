@@ -14,16 +14,19 @@ interface Params {
   page: number;
   perPage: number;
   search?: string;
+  tag?: string;
 }
 
 export async function fetchNotes(
   searchValue: string = '',
   page: number = 1,
+  tag?: string,
   perPage: number = 12
 ): Promise<FetchNotesResponse> {
   const params: Params = {
     page,
     perPage,
+    tag,
   };
 
   if (searchValue) {

@@ -19,17 +19,18 @@ import type { FetchNotesResponse } from '@/lib/api';
 
 interface NotesClientProps {
   initialData: FetchNotesResponse;
+  tag: string | undefined;
 }
 
-export default function NotesClient({ initialData }: NotesClientProps) {
+export default function NotesClient({ initialData, tag }: NotesClientProps) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>('');
   const [debouncedSearchValue] = useDebounce(searchValue, 1000);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const { data, isFetching, isError, isSuccess } = useQuery({
-    queryKey: ['notes', debouncedSearchValue, currentPage],
-    queryFn: () => fetchNotes(debouncedSearchValue, currentPage),
+    queryKey: ['notes', debouncedSearchValue, currentPage, tag],
+    queryFn: () => fetchNotes(debouncedSearchValue, currentPage, tag),
     placeholderData: keepPreviousData,
     refetchOnMount: false,
     initialData:
