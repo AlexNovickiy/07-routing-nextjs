@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 
 interface ModalProps {
-  onClose: () => void;
+  onClose: () => void | undefined;
   children: React.ReactNode;
 }
 
