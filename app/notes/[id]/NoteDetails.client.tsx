@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import css from './NoteDetails.module.css';
 
-type Params = {
+export type Params = {
   id: string;
 };
 
